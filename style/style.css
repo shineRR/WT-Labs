@@ -116,7 +116,7 @@ body {
 		grid-template-areas: "side main main"; 
 		grid-template-columns: 400px [main-start] 1fr [main-end];
 		grid-template-rows: repeat(300px 3fr 300px);
-		height: 600px;
+		height: 750px;
 	}
 
 	main div {
@@ -133,6 +133,7 @@ body {
 		grid-area: main;
 		border-radius: 25px 0px 0px 25px;
 		margin-left: 10px;
+		display: grid;
 	}
 }
 
@@ -255,6 +256,77 @@ footer span {
 	color: #A99F9F;
 
 	text-decoration: none;
+}
+
+.contentChild {
+	display: grid;
+	grid-template-areas: "img info ";
+	grid-template-rows: repeat(200px 4fr 200px);
+	width: 100%;
+	height: 100%;
+	border-width: 0;
+
+	background-color: rgba(0, 0, 0, 0);****
+}
+
+.contentChild img {
+	grid-area: img;
+	border: 1px solid grey;
+	border-radius: 30px;
+	float: left;
+	width: 20%;
+	height: 30%;
+	margin-top: 50px;
+	margin-left: 30px;
+	background: rgba(0, 0, 0, 0.2);***
+}
+
+.contentChild span {
+	grid-area: img;
+	background-color: rgba(0, 0, 0, 0);***
+}
+
+.classOfFilms {
+	border-width: 0;
+	margin-left: 20px;
+	/*text-align: left;*/
+	margin-top: 20px;
+	background-color: rgba(0, 0, 0, 0);***
+/*	display: grid;
+	grid-template-rows: 200px 3fr 200px;
+	grid-template-columns: 100px 3fr 100px;*/
+}
+
+/*.classOfFilms li {
+	margin-top: 10px;
+}*/
+
+.classOfFilms a {
+	color: white;
+}
+
+.postbox {
+	background-color: rgba(0, 0, 0, 0);***
+	border-width: 0;
+    border: 1px solid rgba(0, 0, 0, 0);***
+    display: -moz-inline-stack;
+    display: inline-block;
+    float: left;
+    margin: 0 10px 14px 0;
+    min-height: 250px;
+    padding: 2px;
+    vertical-align: top;
+    width: 216px;
+    height: 324px;
+    zoom: 1;
+    font-size: 10px;
+}
+
+.postbox .posttitle {
+    height: 24px;
+    line-height: 12px;
+    padding: 5px 0;
+    text-align: center;
 }
 
 
