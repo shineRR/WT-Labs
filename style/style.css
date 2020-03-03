@@ -53,7 +53,6 @@ body {
 	}
 
     .register {
-        /*justify-content: center;*/
         padding: 10px;
     }
 
@@ -77,6 +76,11 @@ body {
 	.grid-post {
 		display: grid;
 		grid-template-rows: 350px 1fr;
+		margin-left: 20px;
+	}
+
+	.postbox {
+		margin: 0px 10px 20px 50px;
 	}
 }
 
@@ -168,6 +172,10 @@ body {
 		display: grid;
 		grid-template-columns: 300px 2fr;
 	}
+
+	.postbox {
+		   margin: 0 10px 20px 0;
+	}
 }
 
 header {
@@ -213,6 +221,19 @@ header {
 main {
 	margin-top: 20px;
 	text-align: center;
+}
+
+.sidebar a {
+	display: grid;
+	padding: 8px 20px;
+	text-decoration: none;
+	color: white;
+	border: 1px solid #950909;
+	border-radius: 30px;
+}
+
+.sidebar a:hover {
+	background-color: #950909;
 }
 
 footer span {
@@ -340,13 +361,9 @@ footer span {
 
 .classOfFilms {
 	border-width: 0;
-	margin-left: 20px;
-	/*text-align: left;*/
+	margin-left: 20px;	
 	margin-top: 20px;
 	background-color: rgba(0, 0, 0, 0);***
-/*	display: grid;
-	grid-template-rows: 200px 3fr 200px;
-	grid-template-columns: 100px 3fr 100px;*/
 }
 
 
@@ -361,7 +378,6 @@ footer span {
     display: -moz-inline-stack;
     display: inline-block;
     float: left;
-    margin: 0 10px 14px 0;
     min-height: 250px;
     padding: 2px;
     vertical-align: top;
