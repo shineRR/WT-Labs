@@ -28,9 +28,9 @@ body {
     	text-align: center;
     }
 
-    header a {
+    header input {
     	font-size: 15px;
-    	padding: 10px;
+    	padding: 15px;
     	color: white;
     }
 
@@ -38,11 +38,11 @@ body {
     	align-items: center;
     }
 
-    .headerMenu a {
+    .headerMenu input {
 		display: block;
-		width: 94%;
-		height: 30px;
-		line-height: 30px;
+		width: 100%;
+		height: 30px;	
+		line-height: 0px;
 		font-size: 10px;
 	}
 
@@ -115,9 +115,10 @@ body {
 		padding-right: 50px;
 	}
 
-	.headerMenu a {
+	.headerMenu input {
 		display: block;
 		display: block;
+		margin-top: 10px;
 		width: 200px;
 		height: 40px;
 		line-height: 40px;
@@ -133,7 +134,7 @@ body {
 		padding: 15px;
 	}
 
-	header a {
+	header input {
 		color: white;
 		text-decoration: none;
 	}
@@ -222,25 +223,41 @@ header {
 	width: 100%;
 }
 
-	.headerMenu input {
-	font-family: Baloo, sans-serif;
-    font-size: 25px;
-    background: none;
-    padding: 5px;
-    outline: none;
-    color: white;
-	}
+.headerMenu input {
+	text-decoration: none;
+	/*color: white;*/
+	background-color: #6E0F00;
+	border: 1px solid #333;
+	border-radius: 40px;
+	letter-spacing: 2px;
+	text-align: center;
+	position: relative;
+}
 
-	.headerMenu input[type = "submit"]{
-		border: none;
-		background: none;
-		transition-duration: 0.07s;
-		-webkit-appearance: none;
-	}
+.headerMenu input[type = "submit"]:after {
+	position: absolute;
+	content: "";
+  	top: 0;
+  	left: 0;
+ 	width: 0;
+  	height: 100%;
+	border-radius: 30px;
+	background: #8E0E00;
+	transition: all .35s;
+	/*border: none;*/
+	/*background: none;*/
+	/*transition-duration: 0.07s;*/
+	/*-webkit-appearance: none;*/
+}
 
-	.headerMenu input[type = "submit"]:hover{
-	    color: chartreuse;
-	}
+.headerMenu input[type = "submit"]:hover:after{
+    /*color: red;*/
+    width: 100%;
+}
+
+#php-button {
+	background-color: red;
+}
 
 main {
 	margin-top: 20px;
@@ -291,14 +308,6 @@ footer span {
 	margin-top: 0;
 	text-align: center;
 	color: #A99F9F;
-}
-
-.shit {
-	/*color: green;
-	background-color: black;
-	font-size: 20px;
-	height: 50px;*/
-	background-color: slateblue;
 }
 
 .popup .close {
@@ -364,7 +373,7 @@ footer span {
 
 .contentChild {
 	display: grid;
-	grid-template-columns: 300px 1fr;
+	grid-template-columns: 30% 70%;
 	border-width: 0;
 
 	background-color: rgba(0, 0, 0, 0);
@@ -374,20 +383,27 @@ footer span {
 	/*grid-area: img;*/
 	border: 1px solid grey;
 	border-radius: 30px;
-	float: left;
-	/*width: 250px;
-	height: 250px;*/
 	margin-top: 50px;
 	margin-left: 30px;
 	background: rgba(0, 0, 0, 0.2);
 }
 
 .contentChild span {
-	/*grid-area: info;*/
-	text-align: left;
+	max-width: 70%;
 	margin-top: 80px;
-	/*margin-left: 50px;	*/
+	margin-left: 50px;	
 	background-color: rgba(0, 0, 0, 0);
+}
+
+.contentChild input[type = "submit"] {
+	/*justify-content: center;
+	/*margin: auto;*/
+
+	/*height: 100px;*/
+}
+
+.php-output {
+	/*width: 300px;*/
 }
 
 .classOfFilms {
