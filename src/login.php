@@ -15,7 +15,7 @@
 		</div>
 
 		<div class="grid-container">
-			<nav class="headerMenu">
+			<nav class="header-menu">
 				<a href="films.php"> <span>Top Films </span></a>
 				<a href="serials.php"> <span>Serials </span></a>
 				<a href="profile.php"> <span>Profile </span></a>
@@ -39,8 +39,8 @@
 	<main>
 		<div class="sidebar">categories: <br><br>
 			<a href="">Horror</a> <a href="">Comedy</a> <a href="">Drama</a> <a href="">Thriller</a></div>
-		<div class="mainContent">
-			<div class="classOfFilms">
+		<div class="main-content">
+			<div class="films">
 				<div class="postbox">
 					<div class="postcover"><img src="src/fzhh70.jpg" alt="" width="214" height="304"></div>
 					<div class="posttitle"><a href="post.php">Bonnie and Clyde (1967)</a></div>
@@ -81,7 +81,7 @@
 
 	<footer>
 		<span>Hidden</span>
-		<div class="foot">
+		<div class="bottom">
 			<section>GIVE ME A MOMENT</section>
 		</div>
 	</footer>

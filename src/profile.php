@@ -10,7 +10,7 @@
 <body>
 	<header>
 		<div class="grid-container">
-			<nav class="headerMenu">
+			<nav class="header-menu">
 				<?php include 'menu.php'?>
 			</nav>
 		</div>
@@ -22,9 +22,9 @@
 			<a href="">Comedy</a> 
 			<a href="">Drama</a> 
 			<a href="">Thriller</a></div>
-		<div class="mainContent">
-			<div class="contentChild">
-				<img src="src/person.png" alt="person">
+		<div class="main-content">
+			<div class="content-child">
+				<img src="Assets/person.png" alt="person">
 					<span>Name: Person<br>
 					Phone: +123456789<br>
 					E-mail: afs@gmail.com
@@ -35,7 +35,7 @@
 
 	<footer>
 		<span>Hidden</span>
-		<div class="foot">
+		<div class="bottom">
 			<section>GIVE ME A MOMENT</section>
 		</div>
 	</footer>

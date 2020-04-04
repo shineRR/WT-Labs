@@ -10,7 +10,7 @@
 <body>
 	<header>
 		<div class="grid-container">
-			<nav class="headerMenu">
+			<nav class="header-menu">
 				
 				<?php include 'menu.php'?>
 			</nav>
@@ -24,39 +24,39 @@
 			<a href="">Drama</a> 
 			<a href="">Thriller</a>
 		</div>
-		<div class="mainContent">
-			<div class="classOfFilms">
+		<div class="main-content">
+			<div class="films">
 				<div class="postbox">
 					<div class="postcover"><img src="Assets/fzhh70.jpg" alt="" width="214" height="304"></div>
-					<div class="posttitle"><a href="post.php">hercai (1967)</a></div>
+					<div class="posttitle"><a href="">hercai (1967)</a></div>
 				</div>
 				<div class="postbox">
 					<div class="postcover"><img src="Assets/1.jpg" alt="" width="214" height="304"></div>
-					<div class="posttitle"><a href="post.php">capisma (1992)</a></div>
+					<div class="posttitle"><a href="">capisma (1992)</a></div>
 				</div>
 				<div class="postbox">
 					<div class="postcover"><img src="Assets/fzhh70.jpg" alt="" width="214" height="304"></div>
-					<div class="posttitle"><a href="post.php">hercai (2000)</a></div>
+					<div class="posttitle"><a href="">hercai (2000)</a></div>
 				</div>
 				<div class="postbox">
 					<div class="postcover"><img src="Assets/2.jpg" alt="" width="214" height="304"></div>
-					<div class="posttitle"><a href="post.php">better call saul (1972)</a></div>
+					<div class="posttitle"><a href="">better call saul (1972)</a></div>
 				</div>
 				<div class="postbox">
 					<div class="postcover"><img src="Assets/3.jpg" alt="" width="214" height="304"></div>
-					<div class="posttitle"><a href="post.php">daniel (1941)</a></div>
+					<div class="posttitle"><a href="">daniel (1941)</a></div>
 				</div>
 				<div class="postbox">
 					<div class="postcover"><img src="Assets/4.jpg" alt="" width="214" height="304"></div>
-					<div class="posttitle"><a href="post.php">ncis (1941)</a></div>
+					<div class="posttitle"><a href="">ncis (1941)</a></div>
 				</div>
 				<div class="postbox">
 					<div class="postcover"><img src="Assets/7.jpg" alt="" width="214" height="304"></div>
-					<div class="posttitle"><a href="post.php">The walking dead (1941)</a></div>
+					<div class="posttitle"><a href="">The walking dead (1941)</a></div>
 				</div>
 				<div class="postbox">
 					<div class="postcover"><img src="Assets/2.jpg" alt="" width="214" height="304"></div>
-					<div class="posttitle"><a href="post.php">Lincoln Rhyme (1941)</a></div>
+					<div class="posttitle"><a href="">Lincoln Rhyme (1941)</a></div>
 				</div>
 
 			</div>
@@ -65,7 +65,7 @@
 
 	<footer>
 		<span>Hidden</span>
-		<div class="foot">
+		<div class="bottom">
 			<section>GIVE ME A MOMENT</section>
 		</div>
 	</footer>
