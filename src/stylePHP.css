@@ -15,7 +15,7 @@ body {
 	color: white;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1025px) {
 
     body {
         font-size: 10px;
@@ -69,10 +69,17 @@ body {
     	width: 70%;
     }
 
+    .contentChild {
+		display: grid;
+		grid-template-areas: "img" "info";
+	}
+
     .contentChild img {
 		width: 200px;
 		height: 200px;
+		justify-self: center;
 	}
+
 	.grid-post {
 		display: grid;
 		grid-template-rows: 350px 1fr;
@@ -84,7 +91,7 @@ body {
 	}
 }
 
-@media screen and (min-width: 600px) {	
+@media screen and (min-width: 1025px) {	
 
 	header {
 		grid-template-areas: "header register sideway"
@@ -164,9 +171,15 @@ body {
 		display: grid;
 	}
 
+	.contentChild {
+		display: grid;
+		grid-template-areas: "img info";
+	}
+
 	 .contentChild img {
 		width: 250px;
 		height: 250px;
+		margin-left: 30px;
 	}
 
 	.grid-post {
@@ -244,10 +257,6 @@ header {
 	border-radius: 30px;
 	background: #8E0E00;
 	transition: all .35s;
-	/*border: none;*/
-	/*background: none;*/
-	/*transition-duration: 0.07s;*/
-	/*-webkit-appearance: none;*/
 }
 
 .headerMenu input[type = "submit"]:hover:after{
@@ -340,10 +349,7 @@ footer span {
 }
 
 .grid-post {
-/*	display: grid;
-	grid-template-columns: 300px 2fr;*/
 	border-width: 0;
-
 	background-color: rgba(0, 0, 0, 0);
 }
 
@@ -372,38 +378,26 @@ footer span {
 }
 
 .contentChild {
-	display: grid;
-	grid-template-columns: 30% 70%;
 	border-width: 0;
-
 	background-color: rgba(0, 0, 0, 0);
 }
 
 .contentChild img {
-	/*grid-area: img;*/
+	grid-area: img;
 	border: 1px solid grey;
 	border-radius: 30px;
 	margin-top: 50px;
-	margin-left: 30px;
+	/*margin-left: 30px;*/
 	background: rgba(0, 0, 0, 0.2);
 }
 
 .contentChild span {
+	grid-area: info;
 	max-width: 70%;
-	margin-top: 80px;
-	margin-left: 50px;	
+	justify-self: center;
+	margin-top: 80px;x;	*/
+	/*margin-left: 50px;*/
 	background-color: rgba(0, 0, 0, 0);
-}
-
-.contentChild input[type = "submit"] {
-	/*justify-content: center;
-	/*margin: auto;*/
-
-	/*height: 100px;*/
-}
-
-.php-output {
-	/*width: 300px;*/
 }
 
 .classOfFilms {
@@ -412,7 +406,6 @@ footer span {
 	margin-top: 20px;
 	background-color: rgba(0, 0, 0, 0);
 }
-
 
 .classOfFilms a {
 	color: white;
