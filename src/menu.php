@@ -1,6 +1,6 @@
 <?php
 
-$page = basename($_SERVER["SCRIPT_FILENAME"]);
+$page = basename($_SERVER['PHP_SELF']);
 
 $headerMenu = array('index.php' => 'Home', 'profile.php' => 'Profile', 'serials.php' => 'Serials', 'films.php' => 'Top Films',
     'extension.php' => 'Extension');
