@@ -9,7 +9,6 @@
 </head>
 <body>
 	<header>
-
 		<div class="grid-container">
 			<nav class="header-menu">
 				<?php include 'menu.php'?>

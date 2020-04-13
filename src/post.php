@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1" /> 
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link href="https://fonts.googleapis.com/css?family=Montserrat+Alternates&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="stylePHP.css">
 	<title>Watch Films!</title>
@@ -10,7 +10,7 @@
 <body>
 	<header>
 		<div class="register">
-			<a href="signup.php">Register</a>	
+			<a href="signup.php">Register</a>
 			<a href="login.php">Log In</a>
 		</div>
 
@@ -21,7 +21,7 @@
 				<a href="profile.php"> <span>Profile </span></a>
 			</nav>
 		</div>
-		
+
 	</header>
 
 	<main>
@@ -42,6 +42,6 @@
 			<section>GIVE ME A MOMENT</section>
 		</div>
 	</footer>
-		
+
 </body>
 </html>
