@@ -26,20 +26,22 @@
 		</div>
 		<div class="main-content">
 			<div class="content-child">
-				<img src="Assets/php.jpg" alt="">
 				<span>
 					<form action="extension.php" method="get">
-						Enter cities here:	<input type="text" name="cities" size="50">
-						<input type="Submit">
-						<br>
+						id: <input name="id" type="text" size="50"><br>
+						name: <input name="name" type="text" size="50"><br>
+						price: <input name="price" type="number" step="0.01"><br>
+						description: <input name="description" type="text" size="50"><br>
+						<input type="Submit"><br>
 						<span class= "php-output">
-							<?php
-								outputNorepeatArray($cities);
-							?>
+							<?php outputFile(openFile());?>
 							<br>
 						</span>
 					</form>
 				</span>
+				<div class="item-info">
+					<?php showList($list)?>
+				</div>
 			</div>
 		</div>
 	</main>

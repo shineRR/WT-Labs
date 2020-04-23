@@ -40,7 +40,7 @@ body {
 
     .header-menu a {
 		display: block;
-		width: 100%;
+		width: 90%;
 		height: 30px;	
 		line-height: 0px;
 		font-size: 10px;
@@ -75,6 +75,12 @@ body {
 	}
 
     .content-child img {
+		width: 200px;
+		height: 200px;
+		justify-self: center;
+	}
+
+	.item-info {
 		width: 200px;
 		height: 200px;
 		justify-self: center;
@@ -176,8 +182,14 @@ body {
 	}
 
 	.content-child img {
-		width: 250px;
-		height: 250px;
+		width: 200px;
+		height: 200px;
+		margin-left: 30px;
+	}
+
+	.item-info {
+		width: 200px;
+		height: 200px;
 		margin-left: 30px;
 	}
 
@@ -350,7 +362,7 @@ footer span {
 }
 
 .content-child img {
-	grid-area: img;
+	grid-area: info;
 	border: 1px solid grey;
 	border-radius: 30px;
 	margin-top: 50px;
@@ -358,8 +370,17 @@ footer span {
 	background: rgba(0, 0, 0, 0.2);
 }
 
-.content-child span {
+.item-info {
 	grid-area: info;
+	border: 0px solid grey;
+	border-radius: 30px;
+	margin-top: 50px;
+	/*margin-left: 30px;*/
+	background: rgba(0, 0, 0, 0);
+}
+
+.content-child span {
+	grid-area: img;
 	max-width: 70%;
 	justify-self: center;
 	margin-top: 80px;

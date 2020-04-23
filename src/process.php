@@ -1,53 +1,80 @@
 <?php
-
-function strSplitUnicode($str, $l = 0)
+// error_reporting(0);
+function openFile()
 {
-    if ($l > 0) {
-        $ret = array();
-        $len = mb_strlen($str, "UTF-8");
-        for ($i = 0; $i < $len; $i += $l) {
-            $ret[] = mb_substr($str, $i, $l, "UTF-8");
+    $list = array();
+    $handle = fopen("list.csv", "r") or die("gg");
+    while (($data = fgetcsv($handle, 1000, ",")) !== false) {
+        $num = count($data);
+        $item = array();
+        for ($c = 0; $c < $num; $c++) {
+            array_push($item, $data[$c]);
         }
-        return $ret;
+        array_push($list, $item);
     }
-    return preg_split("//u", $str, -1, PREG_SPLIT_NO_EMPTY);
+    fclose($handle);
+    return $list;
 }
 
-function outputNoRepeatArray($array)
+function writeFile($list)
 {
-    $norepeat = [];
-    foreach ($array as $key => $value) {
-        $value = mb_convert_case($value, MB_CASE_TITLE, "UTF-8");
-        if (in_array($value, $norepeat) == false) {
-            array_push($norepeat, $value);
-        }
+    $fp = fopen('list.csv', 'w');
+    foreach ($list as $line) {
+        fputcsv($fp, $line);
     }
-    print_r($norepeat);
+    fclose($fp);
 }
 
-function stringToArrayOfCities($string)
+function outputFile($list)
 {
-    $array = [];
-    $chars = strSplitUnicode($string);
-    $alphas = array_merge(range('A', 'Z'), range('a', 'z'));
-    $letters = array("а", "б", "в", "г", "д", 'е', "ё", "ж", "з", "и", "й", "к", "л", "м", "н", "о", "п", "р", "с", "т", "у", "ф", "х", "ц", "ч", "ш", "щ", "ъ", "ы", "ь", "э", "ю", "я");
-    $str = "";
-    foreach ($chars as $key => $a) {
-        if (($a == ',') || ($key == count($chars) - 1)) {
-            $str .= (in_array($a, $alphas) || in_array($a, $letters)) ? $a : "";
-            if (strlen($str) > 0) {
-                array_push($array, $str);
+    foreach ($list as $key => $value) {
+        echo '<a href="#">' . $value[0] . '</a><br>';
+    }
+}
+
+function validateFieds($info)
+{
+    foreach ($info as $key => $item) {
+        if (strlen((string) $item) == 0) {
+            echo "net";
+            return false;
+        }
+    }
+    echo "da";
+    return true;
+}
+function showItem(&$list): string
+{
+    if (isset($_GET['id'])) {
+        $activeID = $_GET['id'];
+        foreach ($list as $item) {
+            if ($item['id'] == $activeID) {
+                $itemArray = $item;
+                $itemArray['priceSale'] = 'Цена со скидкой 15%: ' . round($item['price'] * 0.85, 2);
+                $itemString = implode('<br>', $itemArray);
+                return $itemString;
             }
-            $str = "";
-        } else {
-            $str .= (in_array($a, $alphas) || in_array($a, $letters)) ? $a : "";
         }
+        if (empty($itemString)) {
+            return 'Товар не найден!';
+        }
+    } else {
+        return 'Выберите один из товаров';
     }
-    return $array;
 }
 
-$string = !empty($_GET['cities']) ? $_GET['cities'] : '';
-$string = mb_strtolower($string);
-$string = preg_replace("#\[(,[a-zA-Z\x{0430}-\x{044F}\x{0410}-\x{042F}])]#u", "", $string);
-$cities = stringToArrayOfCities($string);
-sort($cities);
+$id = !empty($_GET['id']) ? $_GET['id'] : '';
+$name = !empty($_GET['name']) ? $_GET['name'] : '';
+$price = !empty($_GET['price']) ? $_GET['price'] : '';
+$description = !empty($_GET['description']) ? $_GET['description'] : '';
+$info = array($id, $name, $price, $description);
+$list = array();
+print_r($info);
+$list = openFile();
+if (validateFieds($info)) {
+    echo "string";
+    array_push($list, $info);
+    writeFile($list);
+}
+
+// print_r($list);
