@@ -374,17 +374,17 @@ footer span {
 	grid-area: info;
 	border: 0px solid grey;
 	border-radius: 30px;
-	margin-top: 50px;
-	/*margin-left: 30px;*/
+	margin-top: 90px;
 	background: rgba(0, 0, 0, 0);
 }
 
 .content-child span {
 	grid-area: img;
 	max-width: 70%;
+	padding: 10px;
+	text-align: left;
 	justify-self: center;
 	margin-top: 80px;
-	/*margin-left: 50px;*/
 	background-color: rgba(0, 0, 0, 0);
 }
 

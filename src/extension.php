@@ -6,7 +6,6 @@
 	<link href="https://fonts.googleapis.com/css?family=Montserrat+Alternates&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="stylePHP.css">
 	<title>Watch Films! - Extension</title>
-	<?php include "process.php"?>
 </head>
 <body>
 	<header>
@@ -26,21 +25,23 @@
 		</div>
 		<div class="main-content">
 			<div class="content-child">
+				<?php include "process.php"?>
 				<span>
 					<form action="extension.php" method="get">
-						id: <input name="id" type="text" size="50"><br>
-						name: <input name="name" type="text" size="50"><br>
-						price: <input name="price" type="number" step="0.01"><br>
-						description: <input name="description" type="text" size="50"><br>
+						ID: <input name="id" type="text" placeholder="ID" size="50"><br>
+						Name: <input name="name" type="text" placeholder="Name" size="50"><br>
+						Price: <input name="price" type="number" placeholder="Price" step="0.01"><br>
+						Description: <input name="description" type="text" placeholder="Description" size="50"><br>
 						<input type="Submit"><br>
+						<span style="color: red"><?=$error?></span>
 						<span class= "php-output">
-							<?php outputFile(openFile());?>
+							<ul><?php outputList($list);?></ul>
 							<br>
 						</span>
 					</form>
 				</span>
 				<div class="item-info">
-					<?php showList($list)?>
+					<?php showItem($list)?>
 				</div>
 			</div>
 		</div>
