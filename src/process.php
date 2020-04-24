@@ -41,6 +41,10 @@ function validateFieds($info, $list)
         return 'ID Exists';
     }
 
+    if ($info[2] == 0) {
+        return 'Enter price';
+    }
+
     foreach ($info as $key => $item) {
         if (strlen((string) $item) == 0) {
             return 'All field lengths must be greater than 0';
