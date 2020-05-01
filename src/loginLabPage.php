@@ -25,7 +25,7 @@
 		</div>
 		<div class="main-content">
 			<div class="content-child">
-				<?php include "processLogin.php"?>
+				<?php include "logic/processLogin.php"?>
 				<span>
 					<form action="loginLabPage.php" method="get">
 						E-mail: <input name="email" type="text" placeholder="E-mail" size="50"><br>
