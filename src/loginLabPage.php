@@ -29,7 +29,7 @@
 				<span>
 					<form action="loginLabPage.php" method="get">
 						E-mail: <input name="email" type="text" placeholder="E-mail" size="50"><br>
-						Name: <input name="name" type="text" placeholder="Name" size="50"><br>
+						Password: <input name="password" type="text" placeholder="Password" size="50"><br>
 						<input type="Submit"><br>
 						<span style="color: red"><?=$error?></span>
 					</form>

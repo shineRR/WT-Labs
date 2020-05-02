@@ -1,56 +1,71 @@
 <?php
 
-function writeFile($user)
-{
-    $fp = fopen('users.csv', 'a');
-    fputcsv($fp, $user);
-    fclose($fp);
+function writeFile($user) {
+	$fp = fopen('users.csv', 'a');
+	fputcsv($fp, $user);
+	fclose($fp);
 }
 
-function valid_email($email)
-{
-    return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $email)) ? false : true;
+function valid_email($email) {
+	return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $email)) ? false : true;
 }
 
-function emailExists($email)
-{
-    if (file_exists('users.csv')) {
-        $handle = fopen('users.csv', 'r') or die("gg");
-        while (($data = fgetcsv($handle, 1000, ",")) !== false) {
-            $num = count($data);
-            if (($num > 0) && ($data[0] == $email)) {
-                fclose($handle);
-                return true;
-            }
-        }
-        fclose($handle);
-    }
-    return false;
+function emailExists($email) {
+	if (file_exists('users.csv')) {
+		$handle = fopen('users.csv', 'r') or die("gg");
+		while (($data = fgetcsv($handle, 1000, ",")) !== false) {
+			$num = count($data);
+			if (($num > 0) && ($data[0] == $email)) {
+				fclose($handle);
+				return true;
+			}
+		}
+		fclose($handle);
+	}
+	return false;
 }
 
-function validateFieldsLength($email, $name)
-{
-    return (strlen($email) > 0 && strlen($name) > 0) ? true : false;
+function validateFieldsLength($email, $password) {
+	return (strlen($email) > 0 && strlen($password) > 0) ? true : false;
+}
+
+function addEmailToDB($email, $pass) {
+	$username = "root";
+	$password = "";
+	$hostname = "localhost";
+	$DBName = "customdb";
+	$dbhandle = mysqli_connect($hostname, $username, $password, $DBName) or die("Unable to connect to MySQL");
+	$sql = "INSERT INTO users
+    VALUES ('', '$email', '$pass')";
+	mysqli_set_charset($dbhandle, 'UTF8');
+	if (mysqli_query($dbhandle, $sql)) {
+		echo "Records added successfully.";
+	} else {
+		echo "ERROR: Could not able to execute $sql. " . mysqli_error($dbhandle);
+	}
+	mysqli_close($dbhandle);
 }
 
 $error = '';
 
-if (isset($_GET['email']) && isset($_GET['name'])) {
-    $email = $_GET['email'];
-    $name = $_GET['name'];
-    if (validateFieldsLength($email, $name)) {
-        if (!valid_email($email)) {
-            $error = "Invalid email address.";
-        } else {
-            if (!emailExists($email)) {
-                $user = array($email, $name);
-                writeFile($user);
-                $error = 'Valid email address.';
-            } else {
-                $error = 'Email already exists.';
-            }
-        }
-    } else {
-        $error = 'All field lengths must be greater than 0.';
-    }
+if (isset($_GET['email']) && isset($_GET['password'])) {
+	$email = $_GET['email'];
+	$password = $_GET['password'];
+	if (validateFieldsLength($email, $password)) {
+		if (!valid_email($email)) {
+			$error = "Invalid email address.";
+		} else {
+			if (!emailExists($email)) {
+				$user = array($email, $password);
+				writeFile($user);
+				// echo $password;
+				addEmailToDB($email, $password);
+				$error = 'Valid email address.';
+			} else {
+				$error = 'Email already exists.';
+			}
+		}
+	} else {
+		$error = 'All field lengths must be greater than 0.';
+	}
 }
