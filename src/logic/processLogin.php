@@ -1,4 +1,4 @@
-<?php
+	<?php
 
 function writeFile($user) {
 	$fp = fopen('users.csv', 'a');
@@ -30,18 +30,34 @@ function validateFieldsLength($email, $password) {
 }
 
 function addEmailToDB($email, $pass) {
+	$flag = false;
 	$username = "root";
 	$password = "";
 	$hostname = "localhost";
 	$DBName = "customdb";
 	$dbhandle = mysqli_connect($hostname, $username, $password, $DBName) or die("Unable to connect to MySQL");
-	$sql = "INSERT INTO users
-    VALUES ('', '$email', '$pass')";
-	mysqli_set_charset($dbhandle, 'UTF8');
-	if (mysqli_query($dbhandle, $sql)) {
-		echo "Records added successfully.";
+
+	$sql = "SELECT * FROM users";
+	$result = mysqli_query($dbhandle, $sql);
+	if ($result) {
+		while ($row = mysqli_fetch_array($result)) {
+			if ($row['email'] == $email) {
+				$flag = true;
+			}
+		}
+		mysqli_free_result($result);
+	}
+	if ($flag == false) {
+		$sql = "INSERT INTO users
+                VALUES ('', '$email', '$pass')";
+		mysqli_set_charset($dbhandle, 'UTF8');
+		if (mysqli_query($dbhandle, $sql)) {
+			echo "Records added successfully.";
+		} else {
+			echo "ERROR: Could not able to execute $sql. " . mysqli_error($dbhandle);
+		}
 	} else {
-		echo "ERROR: Could not able to execute $sql. " . mysqli_error($dbhandle);
+		echo "Email already exists in DB";
 	}
 	mysqli_close($dbhandle);
 }
@@ -57,7 +73,7 @@ if (isset($_GET['email']) && isset($_GET['password'])) {
 		} else {
 			if (!emailExists($email)) {
 				$user = array($email, $password);
-				writeFile($user);
+				// writeFile($user);
 				// echo $password;
 				addEmailToDB($email, $password);
 				$error = 'Valid email address.';
