@@ -30,6 +30,7 @@
 				Phone: <input type="tel" name="tel" size="38" placeholder="123-45-678" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required><br>
 				Email: <input type="text" name="email" size="34" placeholder="Email"><br>
 				Subject: <input type="text" name="subject" size="34" placeholder="Subject"><br>
+				Message: <input type="text" name="text" style="height: 25px" size="34" placeholder="Message"><br>
 				<input type="submit">
 			</form>
 			<span style="color: white"><?=$error?></span>
