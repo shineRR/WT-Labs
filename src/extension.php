@@ -6,7 +6,6 @@
 	<link href="https://fonts.googleapis.com/css?family=Montserrat+Alternates&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="stylePHP.css">
 	<title>Watch Films! - Extension</title>
-	<?php include "process.php"?>
 </head>
 <body>
 	<header>
@@ -26,20 +25,24 @@
 		</div>
 		<div class="main-content">
 			<div class="content-child">
-				<img src="Assets/php.jpg" alt="">
+				<?php include "process.php"?>
 				<span>
 					<form action="extension.php" method="get">
-						Enter cities here:	<input type="text" name="cities" size="50">
-						<input type="Submit">
-						<br>
+						ID: <input name="id" type="text" placeholder="ID" size="50"><br>
+						Name: <input name="name" type="text" placeholder="Name" size="50"><br>
+						Price: <input name="price" type="number" placeholder="Price" step="0.01"><br>
+						Description: <input name="description" type="text" placeholder="Description" size="50"><br>
+						<input type="Submit"><br>
+						<span style="color: red"><?=$error?></span>
 						<span class= "php-output">
-							<?php
-								outputNorepeatArray($cities);
-							?>
+							<ul><?php outputList($list);?></ul>
 							<br>
 						</span>
 					</form>
 				</span>
+				<div class="item-info">
+					<?php showItem($list)?>
+				</div>
 			</div>
 		</div>
 	</main>

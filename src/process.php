@@ -1,53 +1,112 @@
 <?php
-
-function strSplitUnicode($str, $l = 0)
+function openFile()
 {
-    if ($l > 0) {
-        $ret = array();
-        $len = mb_strlen($str, "UTF-8");
-        for ($i = 0; $i < $len; $i += $l) {
-            $ret[] = mb_substr($str, $i, $l, "UTF-8");
-        }
-        return $ret;
-    }
-    return preg_split("//u", $str, -1, PREG_SPLIT_NO_EMPTY);
-}
-
-function outputNoRepeatArray($array)
-{
-    $norepeat = [];
-    foreach ($array as $key => $value) {
-        $value = mb_convert_case($value, MB_CASE_TITLE, "UTF-8");
-        if (in_array($value, $norepeat) == false) {
-            array_push($norepeat, $value);
-        }
-    }
-    print_r($norepeat);
-}
-
-function stringToArrayOfCities($string)
-{
-    $array = [];
-    $chars = strSplitUnicode($string);
-    $alphas = array_merge(range('A', 'Z'), range('a', 'z'));
-    $letters = array("а", "б", "в", "г", "д", 'е', "ё", "ж", "з", "и", "й", "к", "л", "м", "н", "о", "п", "р", "с", "т", "у", "ф", "х", "ц", "ч", "ш", "щ", "ъ", "ы", "ь", "э", "ю", "я");
-    $str = "";
-    foreach ($chars as $key => $a) {
-        if (($a == ',') || ($key == count($chars) - 1)) {
-            $str .= (in_array($a, $alphas) || in_array($a, $letters)) ? $a : "";
-            if (strlen($str) > 0) {
-                array_push($array, $str);
+    $list = array();
+    if (file_exists("list.csv")) {
+        $handle = fopen("list.csv", "r") or die("gg");
+        while (($data = fgetcsv($handle, 1000, ",")) !== false) {
+            $num = count($data);
+            $item = array();
+            for ($c = 0; $c < $num; $c++) {
+                array_push($item, $data[$c]);
             }
-            $str = "";
-        } else {
-            $str .= (in_array($a, $alphas) || in_array($a, $letters)) ? $a : "";
+            array_push($list, $item);
         }
+        fclose($handle);
     }
-    return $array;
+    return $list;
 }
 
-$string = !empty($_GET['cities']) ? $_GET['cities'] : '';
-$string = mb_strtolower($string);
-$string = preg_replace("#\[(,[a-zA-Z\x{0430}-\x{044F}\x{0410}-\x{042F}])]#u", "", $string);
-$cities = stringToArrayOfCities($string);
-sort($cities);
+function writeFile($list)
+{
+    $fp = fopen('list.csv', 'w');
+    foreach ($list as $line) {
+        fputcsv($fp, $line);
+    }
+    fclose($fp);
+}
+
+function outputList(&$list)
+{
+    foreach ($list as $key => $value) {
+        if (count($value) == 4) {
+            echo '<li><a href="?id=' . $value[0] . '" style="color: white">' . $value[0] . '</a></li><br>';
+        }
+    }
+}
+
+function validateFieds($info, $list)
+{
+    if (IDExists($info[0], $list)) {
+        return 'ID Exists';
+    }
+
+    foreach ($info as $key => $item) {
+        if (strlen((string) $item) == 0) {
+            return 'All field lengths must be greater than 0';
+        }
+    }
+
+    if ($info[2] == 0) {
+        return 'Enter price';
+    }
+    return '';
+}
+
+function IDExists($ID, $list)
+{
+    return (getElementIndex($list, $ID, 0) == -1) ? false : true;
+}
+
+function getElementIndex($list, $elementID, $index)
+{
+    foreach ($list as $key => $value) {
+        if ($value[$index] == $elementID) {
+            return $key;
+        }
+    }
+    return -1;
+}
+
+function showItem(&$list)
+{
+    if (isset($_GET['id'])) {
+        $elementID = $_GET['id'];
+        $elementIndex = getElementIndex($list, $elementID, 0);
+        if ($elementIndex != -1) {
+            $element = $list[$elementIndex];
+            if (count($element) == 4) {
+                echo "ID: $elementID<br>";
+                echo "Name: $element[1]<br>";
+                echo "Description: $element[3]<br>";
+                echo "Price: $element[2]<br>";
+                echo "Price with 15% discount: " . round($element[2] * 0.85, 2);
+            }
+        } else {
+            echo 'Choose one of items';
+        }
+    } else if (count($list) == 0) {
+        echo 'No items found';
+    } else {
+        echo 'Choose one of items';
+    }
+}
+
+$error = '';
+$list = array();
+$list = openFile();
+
+if (isset($_GET['id']) && isset($_GET['name']) && isset($_GET['price']) && isset($_GET['description'])) {
+    $id = !empty($_GET['id']) ? $_GET['id'] : '';
+    $id = preg_replace('/\D/', '', $id);
+    $name = !empty($_GET['name']) ? $_GET['name'] : '';
+    $price = !empty($_GET['price']) ? $_GET['price'] : '';
+    $price = round($price, 2);
+    $description = !empty($_GET['description']) ? $_GET['description'] : '';
+    $info = array($id, $name, $price, $description);
+    $error = validateFieds($info, $list);
+    if (strlen($error) == 0) {
+        array_push($list, $info);
+        writeFile($list);
+    }
+}
