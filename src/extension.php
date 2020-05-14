@@ -6,6 +6,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Montserrat+Alternates&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="stylePHP.css">
 	<title>Watch Films! - Extension</title>
+	<?php include "logic/process.php"?>
 </head>
 <body>
 	<header>
@@ -25,7 +26,6 @@
 		</div>
 		<div class="main-content">
 			<div class="content-child">
-				<?php include "process.php"?>
 				<span>
 					<form action="extension.php" method="get">
 						ID: <input name="id" type="text" placeholder="ID" size="50"><br>
