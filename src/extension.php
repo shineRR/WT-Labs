@@ -34,15 +34,8 @@
 						Description: <input name="description" type="text" placeholder="Description" size="50"><br>
 						<input type="Submit"><br>
 						<span style="color: red"><?=$error?></span>
-						<span class= "php-output">
-							<ul><?php outputList($list);?></ul>
-							<br>
-						</span>
 					</form>
 				</span>
-				<div class="item-info">
-					<?php showItem($list)?>
-				</div>
 			</div>
 		</div>
 	</main>
