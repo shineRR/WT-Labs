@@ -6,6 +6,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Montserrat+Alternates&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="stylePHP.css">
 	<title>Watch Films! - Extension</title>
+	<?php include "logic/DBLabTable.php"?>
 </head>
 <body>
 	<header>
@@ -24,17 +25,19 @@
 				<a href="">Thriller</a>
 		</div>
 		<div class="main-content">
-			<div class="content-child">
-				<?php include "logic/processLogin.php"?>
 				<span>
-					<form action="loginLabPage.php" method="get">
-						E-mail: <input name="email" type="text" placeholder="E-mail" size="50"><br>
-						Password: <input name="password" type="text" placeholder="Password" size="50"><br>
-						<input type="Submit"><br>
-						<span style="color: red"><?=$error?></span>
+					<form action="" method="get">
+						<select name="act">
+							<option value="New">New</option>
+							<option value="Edit">Edit</option>
+							<option value="Delete">Delete</option>
+							<option value="Show">Show Table</option>
+						</select>
+						<input name="submit-act" type="Submit"><br>
 					</form>
 				</span>
-			</div>
+				<?php getRightFunc($ind)?>
+				<span style="color: red"><?=$error?></span>
 		</div>
 	</main>
 

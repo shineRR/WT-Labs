@@ -6,7 +6,9 @@
 	<link href="https://fonts.googleapis.com/css?family=Montserrat+Alternates&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="stylePHP.css">
 	<title>Watch Films! - Extension</title>
-	<?php include "logic/databaselab.php"?>
+	<?php
+include "logic/DBLabTable.php";
+?>
 </head>
 <body>
 	<header>
@@ -25,7 +27,8 @@
 				<a href="">Thriller</a>
 		</div>
 		<div class="main-content">
-			<?php getInfoDB();?>
+			<?php getUsersTable();
+getFilmsTable();?>
 		</div>
 	</main>
 
