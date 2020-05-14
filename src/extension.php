@@ -28,7 +28,6 @@
 		</div>
 		<div class="main-content">
 			<div class="content-child">
-				<img src="Assets/php.jpg" alt="">
 				<span>
 					<form action="extension.php" method="get">
 						<?php echo $langWords["CITIES"] ?>: <input type="text" name="cities" size="50">
@@ -40,6 +39,9 @@
 						</span>
 					</form>
 				</span>
+				<div class="item-info">
+					<?php showItem($list)?>
+				</div>
 			</div>
 		</div>
 	</main>
