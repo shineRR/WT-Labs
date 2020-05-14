@@ -5,12 +5,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link href="https://fonts.googleapis.com/css?family=Montserrat+Alternates&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="stylePHP.css">
-	<title>Watch Films! - Extension</title>
+	<?php include "logic/lang.php"?>
+	<title><?php echo $langWords["EXTENSION"] ?></title>
 	<?php include "logic/databaselab.php"?>
 </head>
 <body>
 	<header>
 		<div class="grid-container">
+			<?php langMenu()?>
 			<nav class="header-menu">
 				<?php include 'menu.php'?>
 			</nav>
@@ -18,11 +20,11 @@
 	</header>
 
 	<main>
-		<div class="sidebar">categories: <br><br>
-				<a href="">Horror</a>
-				<a href="">Comedy</a>
-				<a href="">Drama</a>
-				<a href="">Thriller</a>
+		<div class="sidebar"><?php echo $langWords["CATEGORIES"] ?>: <br><br>
+				<a href=""><?php echo $langWords["HORROR"] ?></a>
+				<a href=""><?php echo $langWords["COMEDY"] ?></a>
+				<a href=""><?php echo $langWords["DRAMA"] ?></a>
+				<a href=""><?php echo $langWords["THRILLER"] ?></a>
 		</div>
 		<div class="main-content">
 			<?php getInfoDB();?>
