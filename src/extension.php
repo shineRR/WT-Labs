@@ -39,9 +39,6 @@
 						</span>
 					</form>
 				</span>
-				<div class="item-info">
-					<?php showItem($list)?>
-				</div>
 			</div>
 		</div>
 	</main>
