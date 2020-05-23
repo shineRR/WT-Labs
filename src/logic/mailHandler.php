@@ -1,6 +1,6 @@
 <?php
-require 'PHPMailer/class.phpmailer.php';
-require 'PHPMailer/class.smtp.php';
+require 'phpmailer/phpmailer/src/PHPMailer.php';
+require 'phpmailer/phpmailer/src/SMTP.php';
 require 'processLogin.php';
 
 function cleanString($string) {
@@ -26,7 +26,7 @@ if (isset($_GET['name']) && isset($_GET['tel']) && isset($_GET['email']) && isse
 
 	if (validateFields($name, $tel, $email, $subject, $text)) {
 		if (isValidEmail($email)) {
-			$mail = new PHPMailer();
+			$mail = new \PHPMailer\PHPMailer\PHPMailer();
 			// mailer.p@yandex.by
 			// asd123456789
 			$mail->CharSet = 'UTF-8';
