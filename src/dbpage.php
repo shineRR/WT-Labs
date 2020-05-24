@@ -6,7 +6,8 @@
 	<link href="https://fonts.googleapis.com/css?family=Montserrat+Alternates&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="stylePHP.css">
 	<?php include "logic/lang.php"?>
-	<title><?php echo $langWords['PROFILE'] ?></title>
+	<title><?php echo $langWords["EXTENSION"] ?></title>
+	<?php include "logic/databaselab.php"?>
 </head>
 <body>
 	<header>
@@ -26,13 +27,7 @@
 				<a href=""><?php echo $langWords["THRILLER"] ?></a>
 		</div>
 		<div class="main-content">
-			<div class="content-child">
-				<img src="Assets/person.png" alt="person">
-					<span><?php echo $langWords['NAME'] ?>: Person<br>
-					<?php echo $langWords['PHONE'] ?>: +123456789<br>
-					<?php echo $langWords['EMAIL'] ?>: afs@gmail.com
-					</span>
-			</div>
+			<?php getInfoDB();?>
 		</div>
 	</main>
 
