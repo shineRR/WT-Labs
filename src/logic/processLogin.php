@@ -6,7 +6,7 @@ function writeFile($user) {
 	fclose($fp);
 }
 
-function valid_email($email) {
+function isValidEmail($email) {
 	return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $email)) ? false : true;
 }
 
@@ -68,7 +68,7 @@ if (isset($_GET['email']) && isset($_GET['password'])) {
 	$email = $_GET['email'];
 	$password = $_GET['password'];
 	if (validateFieldsLength($email, $password)) {
-		if (!valid_email($email)) {
+		if (!isValidEmail($email)) {
 			$error = "Invalid email address.";
 		} else {
 			if (!emailExists($email)) {

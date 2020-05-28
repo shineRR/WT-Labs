@@ -1,4 +1,5 @@
 <?php
+
 function strSplitUnicode($str, $l = 0)
 {
     if ($l > 0) {
