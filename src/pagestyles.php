@@ -6,8 +6,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Montserrat+Alternates&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="stylePHP.css">
 	<?php include "logic/lang.php"?>
-	<title><?php echo $langWords['PROFILE'] ?></title>
-</head>
+	<title><?php echo $langWords["SET_STYLES"] ?></title>
 <body>
 	<header>
 		<div class="grid-container">
@@ -26,13 +25,20 @@
 				<a href=""><?php echo $langWords["THRILLER"] ?></a>
 		</div>
 		<div class="main-content">
-			<div class="content-child">
-				<img src="Assets/person.png" alt="person">
-					<span><?php echo $langWords['NAME'] ?>: Person<br>
-					<?php echo $langWords['PHONE'] ?>: +123456789<br>
-					<?php echo $langWords['EMAIL'] ?>: afs@gmail.com
-					</span>
-			</div>
+			<?php getCookies()?>
+			<form action="" method="get" style="margin-top: 50px">
+				<?php echo $langWords["BACKGROUND_COLOR"] ?>:
+				<select name="background">
+					<?php colorChoices()?>
+				</select><br>
+				<?php echo $langWords["FONT_COLOR"] ?>:
+				<select name="fontcolor">
+					<?php colorChoices()?>
+				</select><br>
+				<?php echo $langWords["FONT_SIZE"] ?>:<input type="number" name="fontsize" min="1"><br>
+				<input type="submit">
+			</form>
+			<span style="color: white"><?=$error?></span>
 		</div>
 	</main>
 

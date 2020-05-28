@@ -32,7 +32,7 @@ function getInfoDB() {
 			echo '<td>' . 'ID: ' . $row['id'] . ' </td>';
 			echo '<td>' . 'film: ' . $row['film'] . ' </td>';
 			echo '<td>' . 'about Film: ' . $row['about'] . ' </td>';
-			echo '<td>' . 'age-limit: ' . $row['age-limit'] . ' </td>';
+			echo '<td>' . 'age-limit: ' . $row['age'] . ' </td>';
 			echo '<br>';
 			echo '</tr>';
 		}
