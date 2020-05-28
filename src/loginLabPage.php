@@ -36,7 +36,8 @@
 						<span style="color: red"><?=$error?></span>
 					</form>
 				</span>
-			</div>
+				<?php getRightFunc($ind)?>
+				<span style="color: red"><?=$error?></span>
 		</div>
 	</main>
 

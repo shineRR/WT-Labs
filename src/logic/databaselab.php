@@ -9,7 +9,7 @@ function getInfoDB() {
 	mysqli_set_charset($dbhandle, 'UTF8');
 	$sql = "SELECT * FROM users";
 	$result = mysqli_query($dbhandle, $sql);
-
+  
 	if ($result) {
 		echo "<table border='1'>";
 		while ($row = mysqli_fetch_array($result)) {

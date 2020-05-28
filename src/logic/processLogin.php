@@ -1,4 +1,4 @@
-	<?php
+<?php
 
 function writeFile($user) {
 	$fp = fopen('users.csv', 'a');
