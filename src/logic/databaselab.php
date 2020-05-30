@@ -1,5 +1,15 @@
  <?php
 
+function connToDB() {
+	$username = "root";
+	$password = "";
+	$hostname = "localhost";
+	$DBName = "customdb";
+	$dbhandle = mysqli_connect($hostname, $username, $password, $DBName) or die("Unable to connect to MySQL");
+	mysqli_set_charset($dbhandle, 'UTF8');
+	return $dbhandle;
+}
+
 function getInfoDB() {
 	$username = "root";
 	$password = "";
@@ -9,7 +19,6 @@ function getInfoDB() {
 	mysqli_set_charset($dbhandle, 'UTF8');
 	$sql = "SELECT * FROM users";
 	$result = mysqli_query($dbhandle, $sql);
-  
 	if ($result) {
 		echo "<table border='1'>";
 		while ($row = mysqli_fetch_array($result)) {
