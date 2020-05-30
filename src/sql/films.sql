@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 14, 2020 at 08:57 PM
+-- Generation Time: May 30, 2020 at 10:19 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.5
 
@@ -31,19 +31,23 @@ CREATE TABLE `films` (
   `id` int(11) UNSIGNED NOT NULL,
   `film` varchar(100) NOT NULL,
   `about` varchar(320) NOT NULL,
-  `age` int(11) UNSIGNED NOT NULL
+  `age` int(11) UNSIGNED NOT NULL,
+  `img` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `films`
 --
 
-INSERT INTO `films` (`id`, `film`, `about`, `age`) VALUES
-(37, '12', 'Figure', 4),
-(40, 'Mac', 'Mac', 12),
-(43, 'Mac 4', 'Mac', 2),
-(46, 'Klo', 'Klo', 2),
-(47, 'kko', 'zxc', 0);
+INSERT INTO `films` (`id`, `film`, `about`, `age`, `img`) VALUES
+(37, '12', 'Figure', 4, '1.jpg'),
+(40, 'Mac', 'Mac', 12, '2.jpg'),
+(43, 'Mac 4', 'Mac', 2, '3.jpg'),
+(46, 'Klo', 'Klo', 2, '4.jpg'),
+(48, 'lik', 'asd', 12, '5.jpg'),
+(49, '18+++++', '18+++++', 21, '6.jpg'),
+(50, 'Only For 18+', 'Only For 18+', 18, '7.jpg'),
+(51, '18+ not for 17 and ...', 'Not for <18', 18, '8.jpg');
 
 --
 -- Indexes for dumped tables
@@ -63,7 +67,7 @@ ALTER TABLE `films`
 -- AUTO_INCREMENT for table `films`
 --
 ALTER TABLE `films`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
