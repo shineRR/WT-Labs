@@ -7,6 +7,9 @@ function langMenu() {
 				<option value="en">English</option>
 				<option value="ru">Русский</option>
 			</select>
+			<h4>Age/Возраст:</h4>
+			  <input type="checkbox" name="limit" value="18">
+  				<label for="limit"> Yes, Im 18+ / Мне 18+ </label><br>
 			<input type="submit">
 		</form>';
 }
@@ -27,6 +30,9 @@ if (isset($lang)) {
 				<option value="en">English</option>
 				<option value="ru">Русский</option>
 			</select>
+			<h4>Age/Возраст:</h4>
+			  <input type="checkbox" name="limit" value="Bike">
+  				<label for="limit"> Yes, Im 18 </label><br>
 			<input type="submit">
 		</form>';
 }
