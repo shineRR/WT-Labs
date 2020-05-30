@@ -19,14 +19,12 @@ function langMenu() {
 if (isset($_POST['lang'])) {
 	$lang = $_POST['lang'];
 	$limit = $_POST['limit'];
-	// echo $limit;
 	setcookie("_lang", $_POST['lang']);
 	setcookie("_limit", $_POST['limit']);
 	header("refresh: 0; url = " . $_SERVER['REQUEST_URI']);
 } elseif (isset($_COOKIE['_lang']) && isset($_COOKIE['_limit'])) {
 	$lang = $_COOKIE['_lang'];
 	$limit = $_COOKIE['_limit'];
-	echo $limit;
 }
 
 if (isset($lang) && isset($limit)) {

@@ -28,7 +28,6 @@
 		<div class="main-content">
 			<div class="films">
 				<?php include "logic/agelimit.php";?>
-
 			</div>
 		</div>
 	</main>
