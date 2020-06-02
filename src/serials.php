@@ -26,40 +26,9 @@
 				<a href=""><?php echo $langWords["THRILLER"] ?></a>
 		</div>
 		<div class="main-content">
-			<div class="films">
-				<div class="postbox">
-					<div class="postcover"><img src="Assets/fzhh70.jpg" alt="" width="214" height="304"></div>
-					<div class="posttitle"><a href="">hercai (1967)</a></div>
-				</div>
-				<div class="postbox">
-					<div class="postcover"><img src="Assets/7.jpg" alt="" width="214" height="304"></div>
-					<div class="posttitle"><a href="">The walking dead (1992)</a></div>
-				</div>
-				<div class="postbox">
-					<div class="postcover"><img src="Assets/fzhh70.jpg" alt="" width="214" height="304"></div>
-					<div class="posttitle"><a href="">hercai (2000)</a></div>
-				</div>
-				<div class="postbox">
-					<div class="postcover"><img src="Assets/7.jpg" alt="" width="214" height="304"></div>
-					<div class="posttitle"><a href="">Lincoln Rhyme (1972)</a></div>
-				</div>
-				<div class="postbox">
-					<div class="postcover"><img src="Assets/5.jpg" alt="" width="214" height="304"></div>
-					<div class="posttitle"><a href="">Dr. who (1941)</a></div>
-				</div>
-				<div class="postbox">
-					<div class="postcover"><img src="Assets/4.jpg" alt="" width="214" height="304"></div>
-					<div class="posttitle"><a href="">Ncis (1941)</a></div>
-				</div>
-				<div class="postbox">
-					<div class="postcover"><img src="Assets/agbk706.jpg" alt="" width="214" height="304"></div>
-					<div class="posttitle"><a href="">The vampire diaries (1941)</a></div>
-				</div>
-				<div class="postbox">
-					<div class="postcover"><img src="Assets/2.jpg" alt="" width="214" height="304"></div>
-					<div class="posttitle"><a href="">Lincoln Rhyme (1941)</a></div>
-				</div>
 
+			<div class="films">
+				<?php include "logic/agelimit.php";?>
 			</div>
 		</div>
 	</main>

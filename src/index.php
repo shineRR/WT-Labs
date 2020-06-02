@@ -28,39 +28,7 @@
 		</div>
 		<div class="main-content">
 			<div class="films">
-				<div class="postbox">
-					<div class="postcover"><img src="Assets/ftwj751.jpg" alt="" width="214" height="304"></div>
-					<div class="posttitle"><a href="">hercai (1967)</a></div>
-				</div>
-				<div class="postbox">
-					<div class="postcover"><img src="Assets/1.jpg" alt="" width="214" height="304"></div>
-					<div class="posttitle"><a href="">Capisma (1992)</a></div>
-				</div>
-				<div class="postbox">
-					<div class="postcover"><img src="Assets/fzhh70.jpg" alt="" width="214" height="304"></div>
-					<div class="posttitle"><a href="">hercai (2000)</a></div>
-				</div>
-				<div class="postbox">
-					<div class="postcover"><img src="Assets/2.jpg" alt="" width="214" height="304"></div>
-					<div class="posttitle"><a href="">Better Call saul (1972)</a></div>
-				</div>
-				<div class="postbox">
-					<div class="postcover"><img src="Assets/3.jpg" alt="" width="214" height="304"></div>
-					<div class="posttitle"><a href="">Daniel(1941)</a></div>
-				</div>
-				<div class="postbox">
-					<div class="postcover"><img src="Assets/4.jpg" alt="" width="214" height="304"></div>
-					<div class="posttitle"><a href="">NCIS (1941)</a></div>
-				</div>
-				<div class="postbox">
-					<div class="postcover"><img src="Assets/7.jpg" alt="" width="214" height="304"></div>
-					<div class="posttitle"><a href="">the walking dead (1941)</a></div>
-				</div>
-				<div class="postbox">
-					<div class="postcover"><img src="Assets/2.jpg" alt="" width="214" height="304"></div>
-					<div class="posttitle"><a href="">lincoln rhyme (1941)</a></div>
-				</div>
-
+				<?php include "logic/agelimit.php";?>
 			</div>
 		</div>
 	</main>

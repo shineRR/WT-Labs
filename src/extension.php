@@ -8,6 +8,7 @@
 	<?php include "logic/lang.php"?>
 	<title><?php echo $langWords["EXTENSION"] ?></title>
 	<?php include "logic/process.php"?>
+	<?php include "logic/DBLabTable.php"?>
 </head>
 <body>
 	<header>
@@ -29,15 +30,14 @@
 		<div class="main-content">
 			<div class="content-child">
 				<span>
-					<form action="extension.php" method="get">
-						<?php echo $langWords["CITIES"] ?>: <input type="text" name="cities" size="50">
-						<input type="Submit">
-						<br>
-						<span class= "php-output">
-							<?php outputNorepeatArray($cities);?>
-							<br>
-						</span>
-					</form>
+					<form action="" method="get">
+						<select name="act">
+							<option value="New">New</option>
+							<option value="Edit">Edit</option>
+							<option value="Delete">Delete</option>
+							<option value="Show">Show Table</option>
+						</select>
+						<input name="submit-act" type="Submit"><br>
 				</span>
 			</div>
 		</div>
